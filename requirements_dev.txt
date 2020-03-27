@@ -1,0 +1,27 @@
+-r requirements.txt
+
+bump2version
+
+wheel
+watchdog
+flake8
+tox
+coverage
+Sphinx
+twine
+hypothesis
+setuptools
+autopep8
+pycco
+pycodestyle
+
+pytest
+pytest-runner
+pyflakes
+pylint
+factory-boy
+
+ipython
+pyprof2calltree
+vprof
+

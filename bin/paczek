@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# set paczek fillings path into variable if there is none
+if [ -z ${PACZEK_FILLINGS} ]; then
+    export PACZEK_FILLINGS="$HOME/.paczki"
+fi
+
+# run the fzf on all paczeki
+# paczek_path=$( find $PACZEK_FILLINGS -type f -printf "%P\n" | fzf )
+paczek_path=$( find $PACZEK_FILLINGS -path *.git -prune -o -type f -print | fzf )
+
+filename=$(basename $paczek_path)
+
+case $paczek_path in
+    *.tpl) # if template file then fill it
+    dupa $paczek_path ${filename:0:-4};;
+    *) # otherwise just copy it
+    cp $paczek_path $filename;;
+esac

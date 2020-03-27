@@ -1,0 +1,5 @@
+* board
+
+* stuff
+make stuff for flake8 plugin
+https://flake8.pycqa.org/en/latest/plugin-development/plugin-parameters.html
