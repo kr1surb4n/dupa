@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+# I dont know where that came from. This code is not mine.
+# Anyway, it's awesome.
+
 from cProfile import Profile
 from functools import wraps
 import pstats
