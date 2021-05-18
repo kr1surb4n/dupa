@@ -23,9 +23,9 @@ setup(
     license='MIT',
 
     author="Kris Urbanski",
-    author_email="kris@whereibend.space",
+    author_email="kris@plumplum.space",
 
-    description="Dupa - set of tools handy during debuging.",
+    description="Dupa - python debuging made fun.",
     long_description=read("README.md"),
     long_description_content_type="text/markdown",
 

@@ -8,14 +8,14 @@ had to use permutation like: `dupa 1`, `dupa 2` etc.
 
 Word `dupa` comes from polish languge and it means `ass`.
 It is often use in context of a fail of some sort like:
-`no to dupa`(well, fuck). There fore it's often use in Poland
+`no to dupa`(well, fuck). It can be seen in Poland
 during debuging sessions. It's also dangerous as sometimes,
 somewhere a `dupa` can be printed if code hasn't been properly
 checked.
 
 ## Installation
 
-`pip install dupa`
+`pip install dupa` (not yet)
 
 ## Licence
 
@@ -23,4 +23,4 @@ MIT type.
 
 ## Authors
 
-`dupa` was written by `Kris Urbanski <kris@whereibend.space>`\_.
+`dupa` was written by `Kris Urbanski`.
