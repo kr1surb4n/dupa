@@ -28,14 +28,13 @@ setup(
     description="Dupa - python debuging made fun.",
     long_description=read("README.md"),
     long_description_content_type="text/markdown",
-
     packages=find_packages(exclude=('tests', 'docs',)),
-
     install_requires=['flake8'],
     entry_points={
-                flake8_entry_point: [
-                    'X8083 = flake8_dupa_check:Check4Dupa',
-                ],
+        'flake8.extension': [
+            'DUPA001 = dupa_check.flake8_dupa_check:Plugin',
+            'DUPA002 = dupa_check.flake8_debug_check:Plugin',
+        ],
     },
     tests_require=["pytest"],
     classifiers=[

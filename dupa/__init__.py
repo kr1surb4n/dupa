@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
-"""Dupa"""  # noqa
+"""Dupa
+
+Set of tools handy during working, debuging and testing
+the code."""
 
 __version__ = '0.0.1'
 __author__ = 'Kris Urbanski <kris@whereibend.space>'
@@ -7,6 +10,8 @@ __author__ = 'Kris Urbanski <kris@whereibend.space>'
 
 import time
 from functools import wraps
+from dupa.fixturize import fixturize
+
 
 """timeit and debug are not mine."""
 
@@ -35,22 +40,6 @@ def debug(func):
         return value
     return wrapper_debug
 
-def fixturize(func):
-    """Create """
-    @wraps(func)
-    def wrapper_debug(*args, **kwargs):
-        args_repr = [repr(a) for a in args]                      # 1
-        kwargs_repr = [f"{k}={v!r}" for k, v in kwargs.items()]  # 2
-        signature = ", ".join(args_repr + kwargs_repr)           # 3
-        print(f"Calling:\n{func.__name__}({signature})")
-        value = func(*args, **kwargs)
-        print(f"{func.__name__!r} returned:\n{value!r}")
-        print("\n")           # 4
-        return value
-    return wrapper_debug
-
-
-
 def print_wrap(func):
     @wraps(func)
     def wrap(*args, **kwargs):
@@ -62,18 +51,24 @@ def print_wrap(func):
 
 DUPA_COUNTER = 1
 
-def dupa():
-   global DUPA_COUNTER
-   print(f"DUPA {DUPA_COUNTER}")
-   DUPA_COUNTER += 1
+def dupa(marker=None):
+    global DUPA_COUNTER
+    
+    print(f"DUPA {marker if marker else DUPA_COUNTER}")
+    if not marker:
+        DUPA_COUNTER += 1
 
-def wysraj(func):
-   @wraps(func)
-   def wrapper(*args, **kwargs):
-       dupa()
-       return func(*args, **kwargs)
-   return wrapps
-   
+def wysraj(marker=None):
+    def closure(func):
+        """A decorator around a function."""
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            dupa(marker)
+            return func(*args, **kwargs)
+        return wrapper
+    return closure
+
+
 def slow_down(func):
     """Sleep 1 second before calling the function"""
     @wraps(func)
