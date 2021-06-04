@@ -12,6 +12,27 @@ import pyprof2calltree
 profiler = Profile()
 
 
+def timeit(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        start = time.process_time()
+        func_return_value = func(*args, **kwargs)
+        end = time.perf_counter()
+        print('{}.{} : {}'.format(
+            func.__module__, func.__name__, end - start))
+        return func_return_value
+    return wrapper
+
+
+def slow_down(func):
+    """Sleep 1 second before calling the function"""
+    @wraps(func)
+    def wrapper_slow_down(*args, **kwargs):
+        time.sleep(1)
+        return func(*args, **kwargs)
+    return wrapper_slow_down
+
+
 def profile(cumulative=True, print_stats=0, sort_stats='cumulative',
             dump_stats=False, profile_filename='profilestats.out',
             callgrind_filename='callgrind.out'):

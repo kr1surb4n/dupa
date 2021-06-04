@@ -1,6 +1,6 @@
 # Dupa
 
-This is a set of handy tools during debuging.
+Python Print Debuging mande fun(fart) way
 
 Dupa debuging is an old an antic way of debuging source code by
 placing `echo "dupa"` after each command. Usually programmer
