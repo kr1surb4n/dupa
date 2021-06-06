@@ -11,7 +11,8 @@ It is often use in context of a fail of some sort like:
 `no to dupa`(well, fuck). It can be seen in Poland
 during debuging sessions. It's also dangerous as sometimes,
 somewhere a `dupa` can be printed if code hasn't been properly
-checked.
+checked. This packages solves this issue with a Flake8 plugin
+that detects those debugging tools. 
 
 ## Installation
 

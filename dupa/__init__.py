@@ -42,23 +42,26 @@ def print_wrap(func):
         return out
     return wrap
 
+
+
 DUPA_COUNTER = 1
 
-def _kupa_(marker=None):
-    global DUPA_COUNTER
-    
-    print(f"DUPA {marker if marker else DUPA_COUNTER}")
-
-    if not marker:
-        DUPA_COUNTER += 1
-
-
 def dupa(marker=None):
+    if marker:
+        print(f"DUPA {marker}")
+        return None
+
+    global DUPA_COUNTER
+    print(f"DUPA {DUPA_COUNTER}")
+    DUPA_COUNTER += 1
+
+
+def fart(marker=None):
     def closure(func):
         """A decorator around a function."""
         @wraps(func)
         def wrapper(*args, **kwargs):
-            _kupa_(marker)
+            dupa(marker)
             return func(*args, **kwargs)
         return wrapper
     return closure
